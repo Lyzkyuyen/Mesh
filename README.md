@@ -2,7 +2,6 @@
 # https://rhythmofthenight.vercel.app/
 
 
-Made from a fork by @AhmedKabbej,
 For My Sharl<3
 
 
