@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecteur de Playlist</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/src/button.css">
+    <link rel="stylesheet" href="/src/style.css">
+ 
+    
+    
+</head>
+<body>
+
+  <svg style="position:absolute;width:0;height:0">
+  <filter id="grain-fine">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="luminanceToAlpha"/>
+  </filter>
+  <filter id="grain-coarse">
+    <feTurbulence type="fractalNoise" baseFrequency="0.15" numOctaves="1" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="luminanceToAlpha"/>
+  </filter>
+</svg>
+
+<div class="grain-overlay grain-fine"></div>
+  <div class="grain-overlay grain-coarse"></div>
+
+
+    <h1>Lecteur de Playlist</h1>
+
+
+    <figure class="icon-cards mt-3">
+  <div class="fog-glow" id="fogGlow"></div>
+    <div class="icon-cards__content">
+      <div class="icon-cards__item d-flex align-items-center justify-content-center">
+        <span id="splitH2" class="h1">
+          <img src="public/Selenacover.jpg" alt="" width="250px"
+               data-title="Selena Dreaming Of You"
+               data-audio="Selena - Dreaming Of You.mp3">
+        </span>
+      </div>
+      <div class="icon-cards__item d-flex align-items-center justify-content-center">
+        <span id="splitH2" class="h1">
+          <img src="public/Scorpionscover.jpg" alt="" width="250px"
+               data-title="Scorpions Always Somewhere"
+               data-audio="Scorpions - Always Somewhere.mp3">
+        </span>
+      </div>
+      <div class="icon-cards__item d-flex align-items-center justify-content-center">
+        <span id="splitH2" class="h1">
+          <img src="public/MCRcover.jpg" alt="" width="250px"
+               data-title="My Chemical Romance Summertime"
+               data-audio="MCR - Summertime.mp3">
+        </span>
+      </div>
+      <div class="icon-cards__item d-flex align-items-center justify-content-center">
+        <span id="splitH2" class="h1">
+          <img src="public/CAScover.jpg" alt="" width="250px"
+               data-title="Cigarettes After Sex Keep On Loving You"
+               data-audio="Cigarettes After Sex - Keep On Loving You.mp3">
+        </span>
+      </div>
+      <div class="icon-cards__item d-flex align-items-center justify-content-center">
+        <span id="splitH2" class="h1">
+          <img src="public/Bigthiefcover.jpg" alt="" width="250px"
+               data-title="Big Thief Paul"
+               data-audio="Big Thief - Paul.mp3">
+        </span>
+      </div>
+      <div class="icon-cards__item d-flex align-items-center justify-content-center">
+        <span id="splitH2" class="h1">
+          <img src="public/Airsupplycover.jpg" alt="" width="250px"
+               data-title="Air Supply Having You Near Me"
+               data-audio="Air Supply - Having You Near Me.mp3">
+        </span>
+      </div>
+    </div>
+  </figure>
+
+
+
+
+   
+    <div class="gapgutton">
+    <button class="btn-player btn-prev" role="button" id="prev">
+      <span class="btn-fill"></span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="19 20 9 12 19 4"></polygon><line x1="5" y1="4" x2="5" y2="20"></line></svg>
+    </button>
+    <button class="btn-player btn-play" role="button" id="play">
+      <span class="btn-fill"></span>
+      <svg class="icon-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6 3 20 12 6 21"></polygon></svg>
+      <svg class="icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="display:none;"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>
+    </button>
+    <button class="btn-player btn-next" role="button" id="next">
+      <span class="btn-fill"></span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20"></polygon><line x1="19" y1="4" x2="19" y2="20"></line></svg>
+    </button>
+</div>
+
+    
+    <h2 id="track-title">Title</h2>
+    <ul id="playlist"></ul>
+
+      
+<div class="mini-wave" id="miniWave">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div> 
+
+    
+      
+    <script type="module" src="/src/main.js"></script>
+
+
+    <div class="signature" id="signature">- Yours, Mel</div>
+
+    <div class="seek-bar" id="seekBar">
+  <div class="seek-bar__fill" id="seekFill"></div>
+  <div class="seek-bar__thumb" id="seekThumb"></div>
+</div>
+    
+</body>
+</html>

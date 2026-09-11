@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+/* Title & Body */
+
+h1,
+h2,
+p {
+    color: #fff0df;
+}
+
+body {
+    margin: 0;
+    background: #181818;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1,
+h2 {
+    margin: 12px 0;
+}
+
+
+/* Player buttons */
+
+.gapgutton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin: 0 auto 14px;
+}
+
+
+/* Base button */
+
+.btn-player {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    border: 1px solid rgba(245, 230, 208, 0.15);
+    border-radius: 50%;
+
+    background: transparent;
+    color: rgb(245, 230, 208);
+
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* Previous / Next */
+
+.btn-prev,
+.btn-next {
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
+}
+
+
+/* Play */
+
+.btn-play {
+    width: 64px;
+    height: 64px;
+    flex: 0 0 64px;
+}
+
+
+/* Hover */
+
+.btn-player:hover {
+    transform: scale(1.08);
+}
+
+
+
+/* Fill effect */
+
+.btn-fill {
+    position: absolute;
+
+    width: 250%;
+    height: 250%;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+
+    background: #ffbed2;
+    border-radius: 50%;
+
+    pointer-events: none;
+    z-index: 1;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Fill effect on hover */
+.btn-player:hover .btn-fill {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Fill on active */
+.btn-play.active .btn-fill {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Buttons SVG */
+
+.btn-player svg {
+    position: relative;
+    z-index: 2;
+
+    color: rgb(245, 230, 208);
+
+    transition: color 0.3s;
+}
+
+
+/* Previous / Next icons */
+
+.btn-prev svg,
+.btn-next svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* Play icon */
+
+.btn-play svg {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+.btn-play .icon-play {
+    transform: scaleX(1.15);
+}
+
+
+/* On active */
+
+.btn-play.active {
+    background: #ffbed2;
+    color: #181818;
+
+    box-shadow: 0 8px 25px rgba(255, 77, 166, 0.45);
+}
+
+
+/* @ mobile */
+
+@media (max-width: 600px) {
+
+    .btn-prev svg,
+    .btn-next svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .btn-prev,
+    .btn-next {
+        width: 38px;
+        height: 38px;
+        flex: 0 0 38px;
+    }
+
+    .btn-play {
+        width: 50px;
+        height: 50px;
+        flex: 0 0 50px;
+    }
+
+    .btn-play svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+
+/* other or misc */
+
+#quote {
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: #dfdcff;
+    text-align: center;
+    line-height: 1.2;
+}
+
+#playlist {
+    display: none;
+}

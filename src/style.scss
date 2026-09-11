@@ -1,0 +1,215 @@
+// Cards Carousel
+// ----------------------------------------------
+.icon-cards {
+  position: relative;
+
+  width: 100vw;
+  height: 250px;
+
+  margin: 0 0 70px;
+
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+.icon-cards__content {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 380px;
+  height: 250px;
+
+  margin-left: -110px;
+
+  transform-origin: center center;
+  transform-style: preserve-3d;
+}
+
+.icon-cards__item {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 380px;
+  height: 250px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform-origin: center center;
+  border-radius: 6px;
+
+  img {
+    display: block;
+
+    width: 250px;
+    height: 250px;
+
+    object-fit: cover;
+  }
+
+  &:nth-child(1) {
+    transform: rotateY(0deg) translateZ(330px);
+  }
+
+  &:nth-child(2) {
+    transform: rotateY(60deg) translateZ(330px);
+  }
+
+  &:nth-child(3) {
+    transform: rotateY(120deg) translateZ(330px);
+  }
+
+  &:nth-child(4) {
+    transform: rotateY(180deg) translateZ(330px);
+  }
+
+  &:nth-child(5) {
+    transform: rotateY(240deg) translateZ(330px);
+  }
+
+  &:nth-child(6) {
+    transform: rotateY(300deg) translateZ(330px);
+  }
+}
+// Carousel animation
+
+@keyframes carousel {
+  0%, 15% {
+    transform: translateZ(-35vw) rotateY(0deg);
+  }
+
+  30%, 35% {
+    transform: translateZ(-35vw) rotateY(-60deg);
+  }
+
+  45%, 50% {
+    transform: translateZ(-35vw) rotateY(-120deg);
+  }
+
+  60%, 65% {
+    transform: translateZ(-35vw) rotateY(-180deg);
+  }
+
+  75%, 80% {
+    transform: translateZ(-35vw) rotateY(-240deg);
+  }
+
+  90%, 95% {
+    transform: translateZ(-35vw) rotateY(-300deg);
+  }
+
+  98%, 100% {
+    transform: translateZ(-35vw) rotateY(-360deg);
+  }
+}
+
+
+// Demo only
+// ----------------------------------------------
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #110F15;
+}
+
+body > h1 {
+  margin: 50px 0 30px;
+}
+
+
+// Checkbox
+
+.checkbox {
+  position: relative;
+  margin-top: 2rem;
+  font-size: .9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #F47956;
+  transition: color .3s ease;
+  user-select: none;
+  
+  &:hover {
+    color: #F7A95A;
+  }
+
+  // Checkbox
+  
+  &__checkbox {
+    position: relative;
+    top: 0;
+    width: 1.0625rem;
+    height: 1.0625rem;
+    background: white;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    vertical-align: middle;
+    transition: background 0.1s ease;
+    cursor: pointer;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 5px;
+      width: 5px;
+      height: 11px;
+      opacity: 0;
+      transform: rotate(45deg) scale(0);
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transition: all 0.3s ease;
+      transition-delay: 0.15s;
+    }
+  }
+  
+  // Label
+  
+  &__label {
+    margin-left: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  
+  // Animate it if checkbo is checked
+  
+  > input:checked ~ .checkbox__checkbox {
+    border-color: transparent;
+    background: #F47956;
+    animation: jelly 0.6s ease;
+
+    &:after {
+      opacity: 1;
+      transform: rotate(45deg) scale(1);
+    }
+  }
+}
+
+// Jelly checkbox animation
+
+@keyframes jelly {
+  from { transform: scale(1, 1); }
+  30% { transform: scale(1.25, 0.75); }
+  40% { transform: scale(0.75, 1.25); }
+  50% { transform: scale(1.15, 0.85); }
+  65% { transform: scale(0.95, 1.05); }
+  75% { transform: scale(1.05, 0.95); }
+  to { transform: scale(1, 1); }
+}
